@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from recipe.models import Recipe, Recipe_prep_details
 
 recipe_cards = [
 	{
@@ -15,7 +16,8 @@ recipe_cards = [
 # Create your views here.
 def home(request):
 	var = {
-	'cards': recipe_cards,
+	'Recipe': Recipe.objects.all(),
+	'Recipe_prep_details': Recipe_prep_details.objects.all(),
 	'title': 'Home'
 	}
 	return render(request,'recipe/home.html', var)
