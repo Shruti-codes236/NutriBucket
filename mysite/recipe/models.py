@@ -28,7 +28,7 @@ class Recipe_prep_details(models.Model):
 
 
 class Nutri_content(models.Model):
-	Recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, primary_key=True)
+	Recipe = models.OneToOneField(Recipe, on_delete=models.CASCADE, primary_key=True)
 	calories_per_serving = models.CharField(max_length=100)
 	carbs = models.CharField(max_length=100)
 	proteins = models.CharField(max_length=100)
